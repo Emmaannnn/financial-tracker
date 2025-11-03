@@ -1,0 +1,13 @@
+:root {
+  --font-logo: "Momo Trust Display", sans-serif;
+  
+  --primary-color: '#69247C'; /*purple*/
+  --secondary-color: '#DA498D'; /*pink*/
+}
+
+.font-logo{
+    font-family: var(--font-logo);
+}
+
+
+
