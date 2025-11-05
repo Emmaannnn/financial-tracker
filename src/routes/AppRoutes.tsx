@@ -1,24 +1,43 @@
 import { Routes, Route } from 'react-router-dom'
-import Home from '../pages/Home'
-import About from '../pages/About'
-import Login from '../pages/Login'
+import RootLayout from '@/shared/layout/RootLayout'
+import Home from '../pages/landingpage/Home'
+import About from '../pages/landingpage/About'
+import Login from '../pages/landingpage/Login'
+import UserLayout from '../pages/user/layout/UserLayout'
+import Dashboard from '../pages/user/pages/Dashboard'
+import Transaction from '../pages/user/pages/Transaction'
+import Settings from '../pages/user/pages/Settings'
+import Analytics from '../pages/user/pages/Analytics'
+import Categories from '../pages/user/pages/Categories'
+import Budget from '../pages/user/pages/Budget'
 
 
 const AppRoutes = () => {
   return (
-    <div>
-    {/* NAVIGATION */}
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/' element={<Home />}/>
-        <Route path='/about' element={<About />}/>
-      </Routes>
 
       <Routes>
-        <Route path='/login' element={<Login />}/>
+
+        <Route element={<RootLayout/>}>
+          {/* NAVIGATION */}
+          <Route path='/' element={<Home />}/>
+          <Route path='/about' element={<About />}/>
+
+          {/* GO TO LOG IN PAGE */}
+          <Route path='/login' element={<Login />}/>
+        </Route>
+
+          {/* IF LOGGED IN GO TO USER DASHBOARD */}
+        <Route element={<UserLayout />}>
+          <Route path='/Dashboard' element={<Dashboard />}/>
+          <Route path='/Transaction' element={<Transaction />}/>
+          <Route path='/Settings' element={<Settings />}/>
+          <Route path='/Analytics' element={<Analytics />}/>
+          <Route path='/Categories' element={<Categories />}/>
+          <Route path='/Budget' element={<Budget />}/>
+        </Route>
+
       </Routes>
 
-    </div>
   )
 }
 

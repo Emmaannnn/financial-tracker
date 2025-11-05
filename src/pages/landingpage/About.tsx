@@ -2,7 +2,7 @@
 
 const About = () => {
   return (
-    <div>
+    <div className="bg-gray-100 h-screen">
       About this system.
     </div>
   )

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '../../components/ui/button'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
           </h5>
 
         
-        <div className="btn mt-5">
+        <div className="mt-5">
           <Link to='/login'>
             <Button className='bg-[#DA498D] hover:bg-[#DA498D]/90 cursor-pointer'>Get Started</Button>
           </Link>

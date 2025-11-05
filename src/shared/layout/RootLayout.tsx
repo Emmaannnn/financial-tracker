@@ -1,17 +1,13 @@
-import React from 'react'
 import Navigation from '../Partial/Navigation'
 import Footer from '../Partial/Footer'
+import { Outlet } from 'react-router-dom'
 
 
-interface RootLayoutProps {
-  children: React.ReactNode
-}
-
-const RootLayout : React.FC<RootLayoutProps> = ( {children} ) => {
+const RootLayout = () => {
   return (
     <>
       <Navigation />
-          <main>{children}</main>
+          <Outlet/>
       <Footer/>
     </>
   )
