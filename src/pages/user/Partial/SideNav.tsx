@@ -46,7 +46,7 @@ const SideNav = () => {
       <div className="drawer-side is-drawer-close:overflow-visible shadow-[0_3px_8px_rgba(0,0,0,0.05)]">
         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
 
-        <div className="is-drawer-close:w-14 md:is-drawer-close:w-18 is-drawer-open:w-64 bg-white text-[#69247C] flex flex-col items-start min-h-full">
+        <div className="is-drawer-close:w-14 md:is-drawer-close:w-18 is-drawer-open:w-54 bg-white text-[#69247C] flex flex-col items-start min-h-full">
           {/* Sidebar content here */}
 
           <ul className="menu w-full grow gap-1 font-[Inter]">

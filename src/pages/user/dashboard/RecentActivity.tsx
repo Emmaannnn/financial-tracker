@@ -1,5 +1,6 @@
 import { FaHistory } from "react-icons/fa";
 import { PiTarget } from "react-icons/pi";
+import { MdWarningAmber } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 
@@ -46,7 +47,7 @@ const RecentActivity = () => {
   return (
     <div className="grid grid-cols-12 font-[Inter] gap-3">
 
-        <div className="col-span-5 flex flex-col w-full bg-white shadow-sm rounded-lg px-4 py-3">
+        <div className="col-span-6 flex flex-col w-full bg-white shadow-sm rounded-lg px-4 py-3">
             <div className="text-md font-bold text-black/80 flex justify-between p-2">
                 <h1 className="flex justify-start items-center gap-3 font-[Inter] "><FaHistory/> Recent Activity</h1>
                 <Link to='/Transaction' className="text-xs p-2 rounded-md shadow-sm items-center justify-center flex">See all</Link>
@@ -83,7 +84,7 @@ const RecentActivity = () => {
         </div>
 
 
-        <div className="col-span-7 flex flex-col w-full bg-white shadow-sm rounded-lg px-4 py-3">
+        <div className="col-span-6 flex flex-col w-full bg-white shadow-sm rounded-lg px-4 py-3">
             <div className="text-md font-bold text-black/80 flex justify-between p-2">
                 <h1 className="flex justify-start items-center gap-3 font-[Inter] "><PiTarget /> Budget Goal</h1>
                 <Link to='/Budget' className="text-xs p-2 rounded-md shadow-sm items-center justify-center flex">See all</Link>
@@ -98,18 +99,16 @@ const RecentActivity = () => {
                                 <th>Budget</th>
                                 <th>Spent</th>
                                 <th>Progress</th>
-                                <th></th>
                             </tr>
                         </thead>
                     <tbody>
 
                     {BudgetArr.map((BudgetGoal, index) => (
                         <tr className="border-y border-black/15 text-sm" key={index}>
-                            <th>{BudgetGoal.category}</th>
+                            <th className="flex items-center gap-2">{BudgetGoal.category} {BudgetGoal.progress >= 80 && (<span className="text-yellow-500"><MdWarningAmber/></span>)}</th>
                             <td>₱ {BudgetGoal.budget}</td>
                             <td>₱ {BudgetGoal.spent}</td>
                             <td><progress className="progress progress-secondary w-40" value={BudgetGoal.progress} max="100"></progress></td>
-                            <td>{BudgetGoal.progress}%</td>
                         </tr>
                     ))}
 

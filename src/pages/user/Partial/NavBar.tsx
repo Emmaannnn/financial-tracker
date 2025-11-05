@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { FaSearch } from "react-icons/fa";
+// import { FaSearch } from "react-icons/fa";
 import { IoNotificationsOutline } from "react-icons/io5";
 
 
@@ -12,12 +12,12 @@ const NavBar = () => {
       </div>
 
       <div className="flex justify-between items-center gap-4">
-        <label className="input border border-black/15 bg-transparent shadow-xs p-2">
+        {/* <label className="input border border-black/15 bg-transparent shadow-xs p-2">
           <FaSearch className="h-[1em] opacity-50" />
           <input type="search" required placeholder="Search" />
-        </label>
+        </label> */}
 
-        <Button className='bg-transparent shadow-sm rounded-full hover:bg-[#DA498D]/30 cursor-pointer'>
+        <Button className='bg-white shadow-sm rounded-full hover:bg-[#DA498D]/30 cursor-pointer'>
           <IoNotificationsOutline className="text-[#69247C] font-bold"/>
         </Button>
         

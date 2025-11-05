@@ -5,11 +5,11 @@ import { Outlet } from 'react-router-dom'
 const UserLayout = () => {
   return (
     <div>
-      <div className="drawer drawer-open">
+      <div className="drawer drawer-open h-full">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
 
         {/* CONTENT */}
-        <div className="drawer-content">
+        <div className="drawer-content bg-gray-100">
           <NavBar/>
           <Outlet/>
         </div>
