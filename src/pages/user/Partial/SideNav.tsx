@@ -33,7 +33,7 @@ const SideNav = () => {
       title: 'Budget'
     }, {
       icons: IoNewspaperOutline,
-      title: 'Categories'
+      title: 'Bills'
     }, {
       icons: VscSettings,
       title: 'Settings'

@@ -8,7 +8,7 @@ import Dashboard from '../pages/user/pages/Dashboard'
 import Transaction from '../pages/user/pages/Transaction'
 import Settings from '../pages/user/pages/Settings'
 import Analytics from '../pages/user/pages/Analytics'
-import Categories from '../pages/user/pages/Categories'
+import Bills from '../pages/user/pages/Bills'
 import Budget from '../pages/user/pages/Budget'
 
 
@@ -32,7 +32,7 @@ const AppRoutes = () => {
           <Route path='/Transaction' element={<Transaction />}/>
           <Route path='/Settings' element={<Settings />}/>
           <Route path='/Analytics' element={<Analytics />}/>
-          <Route path='/Categories' element={<Categories />}/>
+          <Route path='/Bills' element={<Bills />}/>
           <Route path='/Budget' element={<Budget />}/>
         </Route>
 

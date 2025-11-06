@@ -1,17 +1,39 @@
+import { ChartLineLegend } from "../charts/LineCharts"
+import { ChartPieLegend } from "../charts/PieCharts"
+import { ChartBarLegend } from "../charts/BarCharts"
+import { ChartAreaLegend } from "../charts/AreaCharts"
+import { ChartRadialLegend } from "../charts/RadialCharts"
+
 
 const Analytics = () => {
   return (
-    <div>
-      <div className="flex flex-1 flex-col gap-4 p-4">
-          Reports
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="bg-muted/50 aspect-video rounded-xl shadow-md" />
-            <div className="bg-muted/50 aspect-video rounded-xl shadow-md" />
-            <div className="bg-muted/50 aspect-video rounded-xl shadow-md" />
-          </div>
-          <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
+
+    <div className="px-4">
+      <div className="grid grid-cols-12 gap-3 mb-10">
+        <div className="col-span-6">
+          <ChartPieLegend/>
         </div>
+
+        <div className="col-span-6">
+          <ChartLineLegend/>
+        </div>
+
+        <div className="col-span-4">
+          <ChartBarLegend/>
+        </div>
+
+        <div className="col-span-4">
+          <ChartAreaLegend/>
+        </div>
+
+        <div className="col-span-4">
+          <ChartRadialLegend/>
+        </div>
+
+      </div>
+
     </div>
+
   )
 }
 
