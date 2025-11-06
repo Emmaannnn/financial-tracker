@@ -6,6 +6,7 @@ import { ChartLineLegend } from "@/pages/user/charts/LineCharts"
 const Dashboard = () => {
   return (
     <div className="bg-gray-100 px-5 w-full flex flex-col gap-5">
+      <h1>Dashboard</h1>
       {/* TOTAL CARDS */}
       <TotalSummary/>
 

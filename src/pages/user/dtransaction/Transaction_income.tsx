@@ -1,4 +1,4 @@
-import { IoMdAdd } from "react-icons/io";
+import { AddIncomeTransaction } from "../components/Add_transaction"
 
 const recentArr = [
     {
@@ -21,29 +21,7 @@ const Transaction_income = () => {
             <h1 className="text-2xl font-[Inter] font-bold">Income</h1>
 
             <div className="flex justify-between items-center my-3 2">
-                <div className="flex items-center gap-3">
-                    <button className="cursor-pointer mt-1 bg-white text-black border border-black/15 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-50 flex items-center gap-3" 
-                        onClick={() => {
-                            const modal = document.getElementById('my_modal_1') as HTMLDialogElement;
-                            modal?.showModal();
-                        }}><IoMdAdd/> Add
-                    </button>
-
-                    <dialog id="my_modal_1" className="modal">
-                        <div className="modal-box">
-                            <h3 className="font-bold text-lg">Hello!</h3>
-                            <p className="py-4">Press ESC key or click the button below to close</p>
-                            <div className="modal-action">
-                            <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
-                                <button className="btn">Close</button>
-                            </form>
-                            </div>
-                        </div>
-                    </dialog>
-
-                </div>
-                
+                <AddIncomeTransaction/>
             </div>
 
             <div className="overflow-x-auto">

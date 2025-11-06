@@ -1,8 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineTransaction } from "react-icons/ai";
 import { MdOutlineArrowDropDown } from "react-icons/md";
-import { IoMdAdd } from "react-icons/io";
-
+import { AddExpenseTransaction } from "../components/Add_transaction"
 
 
 const recentArr = [
@@ -74,30 +73,7 @@ const Transaction_expenses = () => {
             </div>
 
             <div className="flex justify-between items-center mb-10 px-4">
-                <div className="flex items-center gap-3">
-                    {/* Open the modal using document.getElementById('ID').showModal() method */}
-                    <button className="cursor-pointer mt-1 bg-white text-black border border-black/15 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-50 flex items-center gap-3" 
-                        onClick={() => {
-                            const modal = document.getElementById('my_modal_1') as HTMLDialogElement;
-                            modal?.showModal();
-                        }}><IoMdAdd/> Add
-                    </button>
-
-                    <dialog id="my_modal_1" className="modal">
-                        <div className="modal-box">
-                            <h3 className="font-bold text-lg">Hello!</h3>
-                            <p className="py-4">Press ESC key or click the button below to close</p>
-                            <div className="modal-action">
-                            <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
-                                <button className="btn">Close</button>
-                            </form>
-                            </div>
-                        </div>
-                    </dialog>
-
-
-                </div>
+                <AddExpenseTransaction/>
 
                 <div className="flex items-center gap-3">
                     <label className="input border border-black/15 bg-transparent shadow-xs p-2 w-50">

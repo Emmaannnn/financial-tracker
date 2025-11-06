@@ -1,3 +1,4 @@
+import TotalSummary from "../dashboard/TotalSummary"
 import { ChartLineLegend } from "../charts/LineCharts"
 import { ChartPieLegend } from "../charts/PieCharts"
 import { ChartBarLegend } from "../charts/BarCharts"
@@ -9,7 +10,10 @@ const Analytics = () => {
   return (
 
     <div className="px-4">
-      <div className="grid grid-cols-12 gap-3 mb-10">
+      <TotalSummary/>
+
+      <div className="grid grid-cols-12 gap-3 mt-5 mb-10">
+        
         <div className="col-span-6">
           <ChartPieLegend/>
         </div>
