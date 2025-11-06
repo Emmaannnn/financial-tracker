@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineTransaction } from "react-icons/ai";
 import { MdOutlineArrowDropDown } from "react-icons/md";
-import { AddExpenseTransaction } from "../components/Add_transaction"
+import { AddExpenseTransaction } from "../../shared/components/Add_transaction"
 
 
 const recentArr = [

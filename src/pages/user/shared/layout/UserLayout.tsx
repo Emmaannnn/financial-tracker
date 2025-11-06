@@ -1,5 +1,5 @@
-import SideNav from '../Partial/SideNav'
-import NavBar from '../Partial/NavBar'
+import SideNav from '../../shared/Partial/SideNav'
+import NavBar from '../../shared/Partial/NavBar'
 import { Outlet } from 'react-router-dom'
  
 const UserLayout = () => {

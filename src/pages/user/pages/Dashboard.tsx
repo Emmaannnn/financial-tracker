@@ -1,12 +1,11 @@
-import TotalSummary from "../dashboard/TotalSummary"
-import RecentActivity from "../dashboard/RecentActivity"
-import { ChartPieLegend } from "@/pages/user/charts/PieCharts"
-import { ChartLineLegend } from "@/pages/user/charts/LineCharts"
+import TotalSummary from "../components/dashboard/TotalSummary"
+import RecentActivity from "../components/dashboard/RecentActivity"
+import { ChartPieLegend } from "@/pages/user/components/charts/PieCharts"
+import { ChartLineLegend } from "@/pages/user/components/charts/LineCharts"
 
 const Dashboard = () => {
   return (
     <div className="bg-gray-100 px-5 w-full flex flex-col gap-5">
-      <h1>Dashboard</h1>
       {/* TOTAL CARDS */}
       <TotalSummary/>
 

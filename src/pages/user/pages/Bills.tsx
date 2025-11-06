@@ -1,20 +1,15 @@
+import TotalBills from "../components/bills/TotalBills"
+import ListBills from "../components/bills/ListBills"
+import HistoryBills from "../components/bills/HistoryBills"
 
-const Categories = () => {
+const Bills = () => {
   return (
-    <div>
-      <div className="flex flex-1 flex-col gap-4 p-4">
-          Categories
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="bg-muted/50 aspect-video rounded-xl shadow-md" >
-            
-            </div>
-            <div className="bg-muted/50 aspect-video rounded-xl shadow-md" />
-            <div className="bg-muted/50 aspect-video rounded-xl shadow-md" />
-          </div>
-          <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
-        </div>
+    <div className="px-4">
+      <TotalBills/>
+      <ListBills/>
+      <HistoryBills/>
     </div>
   )
 }
 
-export default Categories
+export default Bills

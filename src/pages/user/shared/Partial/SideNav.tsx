@@ -1,7 +1,7 @@
-// import { useState, useEffect } from 'react'
+// import { useEffect, useRef } from 'react'
 // import { Button } from '@/components/ui/button'
-import { supabase } from "../../../lib/supabaseClient";
-import { useNavigate, Link } from "react-router-dom"
+import { supabase } from "../../../../lib/supabaseClient";
+import { useNavigate, Link, useLocation } from "react-router-dom"
 import { LuLayoutDashboard } from "react-icons/lu";
 import { AiOutlineTransaction } from "react-icons/ai";
 import { HiOutlineDocumentReport } from "react-icons/hi";
@@ -12,6 +12,7 @@ import { TbLogout2 } from "react-icons/tb";
 
 const SideNav = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -23,14 +24,14 @@ const SideNav = () => {
       icons: LuLayoutDashboard ,
       title: 'Dashboard'
     }, {
+      icons: SiActualbudget,
+      title: 'Budget'
+    }, {
       icons: AiOutlineTransaction,
       title: 'Transaction'
     }, {
       icons: HiOutlineDocumentReport,
       title: 'Analytics'
-    }, {
-      icons: SiActualbudget,
-      title: 'Budget'
     }, {
       icons: IoNewspaperOutline,
       title: 'Bills'
@@ -38,8 +39,7 @@ const SideNav = () => {
       icons: VscSettings,
       title: 'Settings'
     }
-
-];
+  ];
 
   return (
 
@@ -65,7 +65,7 @@ const SideNav = () => {
               return (
 
                 <li key={index}>
-                  <Link to={`/${sideButton.title}`} className="is-drawer-close:tooltip hover:bg-[#DA498D]/30 focus:text-[#69247C] hover:shadow-md p-3 is-drawer-close:tooltip-right flex gap-4" data-tip={sideButton.title}>
+                  <Link to={`/${sideButton.title}`} id={location.pathname === `/${sideButton.title}` ? 'active-sidebar-btn' : 'not-active'} className="is-drawer-close:tooltip hover:bg-[#DA498D]/30 focus:text-[#69247C] hover:shadow-md p-3 is-drawer-close:tooltip-right flex gap-4" data-tip={sideButton.title}>
                     <Icons className="text-xl md:text-2xl text-center md:is-drawer-close:w-full" />
                     <span className=" is-drawer-close:hidden font-semibold text-xs">{sideButton.title}</span>
                   </Link>

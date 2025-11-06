@@ -1,5 +1,5 @@
-import Transaction_expenses from "../dtransaction/Transaction_expenses"
-import Transaction_income from "../dtransaction/Transaction_income"
+import Transaction_expenses from "../components/transaction/Transaction_expenses"
+import Transaction_income from "../components/transaction/Transaction_income"
 
 const Transaction = () => {
   return (

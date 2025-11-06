@@ -1,4 +1,4 @@
-import { AddIncomeTransaction } from "../components/Add_transaction"
+import { AddIncomeTransaction } from "../../shared/components/Add_transaction"
 
 const recentArr = [
     {

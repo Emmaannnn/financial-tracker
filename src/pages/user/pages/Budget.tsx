@@ -1,17 +1,17 @@
-
+import TotalBudget from "../components/budget/TotalBudget"
+import BudgetGoal from "../components/budget/BudgetGoal"
+import SavingsGoal from "../components/budget/SavingsGoal"
 
 const Budget = () => {
   return (
-    <div>
-      <div className="flex flex-1 flex-col gap-4 p-4">
-          Budget
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="bg-muted/50 aspect-video rounded-xl shadow-md" />
-            <div className="bg-muted/50 aspect-video rounded-xl shadow-md" />
-            <div className="bg-muted/50 aspect-video rounded-xl shadow-md" />
-          </div>
-          <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
-        </div>
+    <div className="px-4">
+      <TotalBudget/>
+
+      <div className="grid grid-cols-12 font-[Inter] gap-3 mt-5 mb-10">
+        <BudgetGoal/>
+        <SavingsGoal/>
+      </div>
+
     </div>
   )
 }
