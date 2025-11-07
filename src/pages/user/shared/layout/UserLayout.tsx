@@ -7,7 +7,6 @@ const UserLayout = () => {
     <div>
       <div className="drawer drawer-open h-full">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-
         {/* CONTENT */}
         <div className="drawer-content bg-gray-100">
           <NavBar/>

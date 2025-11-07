@@ -9,6 +9,7 @@ import { IoNewspaperOutline } from "react-icons/io5";
 import { SiActualbudget } from "react-icons/si";
 import { VscSettings } from "react-icons/vsc";
 import { TbLogout2 } from "react-icons/tb";
+import RetrieveUserImg from '../../components/supabase/RetrieveUserImg'
 
 const SideNav = () => {
   const navigate = useNavigate();
@@ -53,8 +54,8 @@ const SideNav = () => {
 
             <li className="is-drawer-close:border-0 md:border-b md:border-black/15 py-3 ">
               {/* <img src="" className="rounded-full" alt="" /> */}
-              <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right hover:shadow-md hover:bg-[#DA498D]/30 focus:text-[#69247C]" data-tip="Home">
-                <div className=" rounded-full md:w-8 md:h-8 bg-[#69247C]"/>
+              <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right hover:shadow-md hover:bg-[#DA498D]/30 focus:text-[#69247C]">
+                <RetrieveUserImg />
                 <span className="is-drawer-close:hidden text-lg w-full font-bold font-logo">FTracker</span>
               </button>
             </li>
