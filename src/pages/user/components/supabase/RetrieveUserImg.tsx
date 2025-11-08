@@ -2,7 +2,7 @@ import { supabase } from '@/lib/supabaseClient'
 import { useState, useEffect } from 'react'
 
 const RetrieveUserImg = () => {
-    const [userImg, setUserImg] = useState("");
+    const [userImg, setUserImg] = useState();
 
     useEffect(() => {
         const getUserImg = async () => {

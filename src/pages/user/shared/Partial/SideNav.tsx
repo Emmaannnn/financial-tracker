@@ -9,6 +9,7 @@ import { IoNewspaperOutline } from "react-icons/io5";
 import { SiActualbudget } from "react-icons/si";
 import { VscSettings } from "react-icons/vsc";
 import { TbLogout2 } from "react-icons/tb";
+import { LiaCreditCardSolid } from "react-icons/lia";
 import RetrieveUserImg from '../../components/supabase/RetrieveUserImg'
 
 const SideNav = () => {
@@ -24,6 +25,9 @@ const SideNav = () => {
     {
       icons: LuLayoutDashboard ,
       title: 'Dashboard'
+    },{
+      icons: LiaCreditCardSolid,
+      title: 'Accounts'
     }, {
       icons: SiActualbudget,
       title: 'Budget'

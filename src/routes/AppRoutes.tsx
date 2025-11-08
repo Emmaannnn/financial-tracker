@@ -10,6 +10,7 @@ import Settings from '../pages/user/pages/Settings'
 import Analytics from '../pages/user/pages/Analytics'
 import Bills from '../pages/user/pages/Bills'
 import Budget from '../pages/user/pages/Budget'
+import Accounts from '../pages/user/pages/Accounts'
 
 
 const AppRoutes = () => {
@@ -29,6 +30,7 @@ const AppRoutes = () => {
           {/* IF LOGGED IN GO TO USER DASHBOARD */}
         <Route element={<UserLayout />}>
           <Route path='/Dashboard' element={<Dashboard />}/>
+          <Route path='/Accounts' element={<Accounts />}/>
           <Route path='/Transaction' element={<Transaction />}/>
           <Route path='/Settings' element={<Settings />}/>
           <Route path='/Analytics' element={<Analytics />}/>
