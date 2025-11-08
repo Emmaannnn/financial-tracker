@@ -10,7 +10,7 @@ import { SiActualbudget } from "react-icons/si";
 import { VscSettings } from "react-icons/vsc";
 import { TbLogout2 } from "react-icons/tb";
 import { LiaCreditCardSolid } from "react-icons/lia";
-import RetrieveUserImg from '../../components/supabase/RetrieveUserImg'
+import UserImg from '../components/UserImg'
 
 const SideNav = () => {
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ const SideNav = () => {
             <li className="is-drawer-close:border-0 md:border-b md:border-black/15 py-3 ">
               {/* <img src="" className="rounded-full" alt="" /> */}
               <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right hover:shadow-md hover:bg-[#DA498D]/30 focus:text-[#69247C]">
-                <RetrieveUserImg />
+                <UserImg />
                 <span className="is-drawer-close:hidden text-lg w-full font-bold font-logo">FTracker</span>
               </button>
             </li>

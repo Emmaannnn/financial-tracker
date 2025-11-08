@@ -3,8 +3,9 @@ import { IoMdAdd } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { Input } from "@/components/ui/input"
 import { supabase } from "@/lib/supabaseClient"
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
 import { Spinner } from "@/components/ui/spinner"
+import { toast } from "sonner"
 
 const differentCards = ['GCash', 'PayMaya', 'BDO', 'BPI', 'PayPal', 'Cash', 'Others']
 
@@ -32,6 +33,17 @@ const Add_accounts = () => {
         const otherBank = formData.get("input-bank");
         const bankToSave = selectedData === "Others" ? otherBank : selectedData;
 
+        if (!selectedData || selectedData === "Select an E-wallet/Bank") {
+            setIsLoading(false);
+            toast.error("Select an E-Wallet/Bank to proceed.", {
+            description: "Please try again",
+            });
+
+            const modal = document.getElementById('add_accounts') as HTMLDialogElement
+            modal?.close()
+
+            return; // stop submission
+        }
 
         const { data: { session }} = await supabase.auth.getSession();
 
@@ -43,29 +55,34 @@ const Add_accounts = () => {
                     balance: balance
                 }
             )
-            
+
+
         if (error) {
             setIsLoading(false);
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Something went wrong, please retry",
+            toast.error("Something went wrong, please try again.", {
+                description: "Make sure you fill out all fields.",
             });
-            console.error("Insert error:", error);
-            
+
+            const modal = document.getElementById('add_accounts') as HTMLDialogElement
+            modal?.close()
         } else {
             setIsLoading(false);
 
-            Swal.fire({
-                title: "Successfully!",
-                icon: "success",
-                draggable: true
+            toast.success("Account has been created!", {
+                description: "Your new account has been successfully added.",
             });
+
 
             setBalance("");
             setOthers("");
             setInputBank("");
+
+            const modal = document.getElementById('add_accounts') as HTMLDialogElement
+            modal?.close()
         }
+
+
+
     } 
 
     return (
@@ -75,7 +92,7 @@ const Add_accounts = () => {
                 onClick={() => {
                     const modal = document.getElementById('add_accounts') as HTMLDialogElement;
                     modal?.showModal();
-                }}><IoMdAdd/> Add
+                }}><IoMdAdd/> Add account
             </button>
 
             <dialog id="add_accounts" className="modal">
@@ -90,7 +107,7 @@ const Add_accounts = () => {
 
                     <form onSubmit={enrollCard} className='flex flex-col gap-2'>
 
-                        <select name="select-bank" defaultValue="Select an E-wallet/Bank" className="select bg-white border-1 border-black/15 w-full h-12" onChange={(e) => setOthers(e.target.value)}>
+                        <select name="select-bank" required defaultValue="Select an E-wallet/Bank" className="select bg-white border-1 border-black/15 w-full h-12" onChange={(e) => setOthers(e.target.value)}>
                             <option disabled={true}>Select an E-wallet/Bank</option>
                             {differentCards.map((index) => {
                                 return (

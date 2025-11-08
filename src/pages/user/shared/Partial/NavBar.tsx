@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 // import { FaSearch } from "react-icons/fa";
 import { IoNotificationsOutline } from "react-icons/io5";
-import RetrieveUserName from '../../components/supabase/RetrieveUserName'
+import UserName from '../components/UserName'
 
 
 const NavBar = () => {
@@ -9,7 +9,7 @@ const NavBar = () => {
   return (
     <div className="flex justify-between items-center px-5 bg-gray-100 py-5">
       <div className="text-lg hidden md:block">
-          <div className="font-logo text-[#69247C]">Welcome, <RetrieveUserName/>!</div>
+          <div className="font-logo text-[#69247C]">Welcome, <UserName/>!</div>
       </div>
 
       <div className="flex justify-between items-center gap-4">
