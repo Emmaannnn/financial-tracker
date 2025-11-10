@@ -16,6 +16,8 @@ const RetrieveUserImg = () => {
                 const displayImg = data.session.user.user_metadata.avatar_url;
                 setUserImg(displayImg);
             }
+
+
         }
 
         getUserImg();

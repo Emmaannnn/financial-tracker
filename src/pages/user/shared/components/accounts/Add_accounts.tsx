@@ -3,13 +3,13 @@ import { IoMdAdd } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { Input } from "@/components/ui/input"
 import { supabase } from "@/lib/supabaseClient"
-// import Swal from 'sweetalert2'
 import { Spinner } from "@/components/ui/spinner"
 import { toast } from "sonner"
 
 const differentCards = ['GCash', 'PayMaya', 'BDO', 'BPI', 'PayPal', 'Cash', 'Others']
 
-const Add_accounts = () => {
+const AddAccounts = () => {
+
     // IF THE SELECT FIELD IS OTHERS ADD INPUT
     const [others, setOthers] = useState("")
     const findOther = (selectedValue : string) => {
@@ -23,7 +23,8 @@ const Add_accounts = () => {
     const [balance, setBalance] = useState("")
     const [inputBank, setInputBank] = useState("")
 
-    const enrollCard = async (e: React.FormEvent<HTMLFormElement>) => {
+
+    const handleSubmit  = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
 
@@ -32,6 +33,7 @@ const Add_accounts = () => {
         const balance = formData.get("input-balance");
         const otherBank = formData.get("input-bank");
         const bankToSave = selectedData === "Others" ? otherBank : selectedData;
+
 
         if (!selectedData || selectedData === "Select an E-wallet/Bank") {
             setIsLoading(false);
@@ -45,12 +47,15 @@ const Add_accounts = () => {
             return; // stop submission
         }
 
-        const { data: { session }} = await supabase.auth.getSession();
+        const { data: { user }} = await supabase.auth.getUser();
 
+
+
+        
         const { error } = await supabase.from('accounts')
             .insert(
                 {
-                    user_id: session?.user.id,
+                    user_id: user?.id,
                     name : bankToSave,
                     balance: balance
                 }
@@ -81,9 +86,8 @@ const Add_accounts = () => {
             modal?.close()
         }
 
+        }
 
-
-    } 
 
     return (
 
@@ -103,9 +107,9 @@ const Add_accounts = () => {
                         </form>
                     </div>
                     
-                    <h3 className="font-bold text-lg py-2 text-center -mt-2 mb-2">New account</h3>
+                    <h3 className="font-bold text-lg py-2 text-center -mt-2 mb-2"> New Account</h3>
 
-                    <form onSubmit={enrollCard} className='flex flex-col gap-2'>
+                    <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
 
                         <select name="select-bank" required defaultValue="Select an E-wallet/Bank" className="select bg-white border-1 border-black/15 w-full h-12" onChange={(e) => setOthers(e.target.value)}>
                             <option disabled={true}>Select an E-wallet/Bank</option>
@@ -118,8 +122,7 @@ const Add_accounts = () => {
 
                         {findOther(others)}
                         <Input value={balance} name="input-balance" className="w-full remove-arrow h-12" placeholder="Enter your balance" type="number" onChange={(e) => setBalance(e.target.value)} />
-                        
-                        <button className="btn bg-[#69247C] text-white hover:bg-[#69247C]/90 border-none" type='submit' disabled={isLoading}>{isLoading ? <><Spinner className='mr-2'/> Loading...</> : "Add account"}</button>
+                        <button className="btn bg-[#69247C] text-white hover:bg-[#69247C]/90 border-none" type='submit' disabled={isLoading}>{isLoading ? ( <> <Spinner className="mr-2" /> Loading... </> ) : ( "Add Account" )}</button>
 
                     </form>
 
@@ -132,4 +135,4 @@ const Add_accounts = () => {
   )
 }
 
-export default Add_accounts
+export default AddAccounts

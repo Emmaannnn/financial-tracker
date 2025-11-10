@@ -8,12 +8,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        navigate("/Dashboard"); // Navigate if already logged in
-      }
-  });
-
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session) {
         navigate("/Dashboard"); // Navigate after OAuth login
@@ -27,7 +21,7 @@ const Login = () => {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "http://localhost:5173/dashboard/", // redirect after login
+        redirectTo: "http://localhost:5173/Dashboard/", // redirect after login
       },
     });
   };
