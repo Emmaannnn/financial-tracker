@@ -3,14 +3,17 @@ import { useState, useEffect } from 'react'
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { toast } from "sonner"
+import { Spinner } from "@/components/ui/spinner"
 
-const fetch_Accounts = () => {
+// DISPLAY ALL ACCOUNTS
+const fetch_Accounts = ( { handleModal } : any ) => {
   const [accounts, setAccounts] = useState<any>([])
+  const [isLoading, isSetLoading] = useState<any>(false)
 
   useEffect(() => {
     // DISPLAY | FETCH DATA FROM DATABASE
     const fetchAccount = async () => {
-
+      isSetLoading(true)
       // GET SESSION
       const { data: { user } } = await supabase.auth.getUser();
       const userID = user?.id;
@@ -18,12 +21,15 @@ const fetch_Accounts = () => {
       // RETRIEVE DATA FFOM ACCOUNTS
       const { data, error } = await supabase.from('accounts')
         .select('*')
-        .eq('user_id', userID);
+        .eq('user_id', userID)
+
 
       if (error) {
         console.error("Error: ", error)
+        isSetLoading(true)
       } else {
         setAccounts(data)
+        isSetLoading(false)
       }
 
     }
@@ -46,24 +52,14 @@ const fetch_Accounts = () => {
   }
 
 
-  const getUpdateAccount = async (userIDs: any) => {
-
-    const { data, error } = await supabase.from('accounts')
-          .select('*')
-          .eq('user_id', userIDs)
-
-    if (error) {
-        console.log("Error", error)
-    } else {
-        console.log("ID: ", data)
-    }
-
-      console.log(userIDs)
-    } 
-
-
   return (
     <div>
+      {isLoading ? (
+          <div className="flex justify-center items-center lg:h-100">
+            <Spinner className='size-8'/>
+          </div>
+      ) : (
+
       <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
         {accounts.map((account: {id: string; name: string; balance: number; created_at: string}) => {
           const dateObject = new Date(account.created_at);
@@ -92,7 +88,9 @@ const fetch_Accounts = () => {
                 <div className="col-span-1 flex justify-center items-center gap-2">
 
                   {/* EDIT */}
-                  <button id="add_accounts" data-id={account.id} onClick={() => getUpdateAccount(account.id)} 
+                  <button id="add_accounts" data-id={account.id} onClick={() => {
+                    handleModal(account)
+                    }}
                       className='p-1 text-black hover:text-blue-500 cursor-pointer'>
                       <FaRegEdit/>
                   </button>
@@ -104,10 +102,9 @@ const fetch_Accounts = () => {
 
               </div>
             </div>
-
-      )})}
-
+        )})}
       </div>
+      )}
     </div>
   )
 }
